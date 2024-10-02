@@ -34,7 +34,7 @@ struct GreetingText: View {
                 .padding(16)
             
             Text(from)
-                .font(.system(size: 50))
+                .font(.system(size: 25))
                 .fontWeight(.regular)
                 .frame(
                     maxWidth: .infinity,
