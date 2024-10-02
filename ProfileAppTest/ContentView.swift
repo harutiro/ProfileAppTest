@@ -10,12 +10,34 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            GreetingText(
+            GreetingImage(
                 message: "Happy Birthday Sam",
                 from: "From Emma"
             )
         }
-        .padding()
+    }
+}
+
+struct GreetingImage: View{
+    
+    var message: String
+    var from: String
+    
+    var body: some View {
+        ZStack{
+            
+            GeometryReader { proxy in
+                Image("see")
+                .resizable()
+                .scaledToFill()
+                .frame(width: proxy.size.width, height: proxy.size.height)
+            }.ignoresSafeArea()
+
+            GreetingText(
+                message: message,
+                from: from
+            )
+        }
     }
 }
 
@@ -42,7 +64,7 @@ struct GreetingText: View {
                 )
                 .padding(16)
         }
-        .frame(maxWidth: .infinity)
+        .padding(32)
     }
 }
 
